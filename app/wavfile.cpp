@@ -99,7 +99,7 @@ const QAudioFormat &WavFile::fileFormat() const
 
 qint64 WavFile::headerLength() const
 {
-return m_headerLength;
+    return m_headerLength;
 }
 
 qreal WavFile::audioDuration() const
@@ -114,10 +114,10 @@ bool WavFile::readHeader()
     bool result = read(reinterpret_cast<char *>(&header), sizeof(CombinedHeader)) == sizeof(CombinedHeader);
     if (result) {
         if ((memcmp(&header.riff.descriptor.id, "RIFF", 4) == 0
-            || memcmp(&header.riff.descriptor.id, "RIFX", 4) == 0)
-            && memcmp(&header.riff.type, "WAVE", 4) == 0
-            && memcmp(&header.wave.descriptor.id, "fmt ", 4) == 0
-            && (header.wave.audioFormat == 1 || header.wave.audioFormat == 0)) {
+             || memcmp(&header.riff.descriptor.id, "RIFX", 4) == 0)
+                && memcmp(&header.riff.type, "WAVE", 4) == 0
+                && memcmp(&header.wave.descriptor.id, "fmt ", 4) == 0
+                && (header.wave.audioFormat == 1 || header.wave.audioFormat == 0)) {
 
             // Read off remaining header information
             DATAHeader dataHeader;
@@ -152,9 +152,12 @@ bool WavFile::readHeader()
         }
     }
     m_headerLength = pos();
+    if(result)
+    {
+        quint32 dataLength = header.riff.descriptor.size - m_headerLength;
+        m_audioDuration = ::audioDuration(m_fileFormat, dataLength) / 1000000.0;
 
-    quint32 dataLength = header.riff.descriptor.size - m_headerLength;
-    m_audioDuration = ::audioDuration(m_fileFormat, dataLength) / 1000000.0;
+    }
 
     return result;
 }

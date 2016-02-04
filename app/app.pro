@@ -11,14 +11,16 @@ HEADERS += engine.h \
     wavfile.h \
     frequencyspectrum.h \
     spectrumanalyser.h \
-    spectrum.h
+    spectrum.h \
+    ffmpeghelper.h
 
 SOURCES += main.cpp \
     utils.cpp \
     engine.cpp \
     wavfile.cpp \
     frequencyspectrum.cpp \
-    spectrumanalyser.cpp
+    spectrumanalyser.cpp \
+    ffmpeghelper.cpp
 
 OTHER_FILES += qml/main.qml \
                BarItem.qml \

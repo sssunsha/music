@@ -4,6 +4,7 @@
 #include "spectrum.h"
 #include "spectrumanalyser.h"
 #include "wavfile.h"
+#include "ffmpeghelper.h"
 
 #include <QAudioDeviceInfo>
 #include <QAudioFormat>
@@ -183,6 +184,8 @@ private:
     // We need a second file handle via which to read data into m_buffer
     // for analysis
     WavFile*            m_analysisFile;
+
+    ffmpegHelper*       m_ffmpegHelper;
 
     QAudioFormat        m_format;
 

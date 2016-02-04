@@ -46,6 +46,7 @@ Engine::Engine(QObject *parent)
     ,   m_spectrumBufferLength(0)
     ,   m_spectrumAnalyser()
     ,   m_spectrumPosition(0)
+    ,   m_ffmpegHelper(new ffmpegHelper())
     ,   m_count(0)
 {
     qRegisterMetaType<FrequencySpectrum>("FrequencySpectrum");
@@ -63,8 +64,8 @@ Engine::Engine(QObject *parent)
 }
 
 Engine::~Engine()
-{
-
+{   
+    delete m_ffmpegHelper;
 }
 
 //-----------------------------------------------------------------------------
@@ -87,7 +88,18 @@ bool Engine::loadFile(const QString &fileName)
                               formatToString(m_file->fileFormat()));
         }
     } else {
-        emit errorMessage(tr("Could not open file"), fileName);
+        // transform to wav for other audio format
+        QString wavFile = this->m_ffmpegHelper->transform2WAV(fileName);
+        if(wavFile == NULL)
+        {
+            // can not transform correctly
+            emit errorMessage(tr("Could not open file"), fileName);
+        }
+        else
+        {
+            loadFile(wavFile);
+        }
+
     }
     if (result) {
         m_analysisFile = new WavFile(this);

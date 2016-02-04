@@ -24,7 +24,7 @@ ApplicationWindow {
         id:fileSelector
         title: qsTr("选择一个音乐文件")
         selectMultiple: true;
-        nameFilters: [  qsTr("*.wav") ]
+//        nameFilters: [  qsTr("*.wav") ]
         onAccepted: {
             var path = fileSelector.fileUrl.toString();
             // remove prefixed "file:///"
