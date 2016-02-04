@@ -3,7 +3,8 @@ import QtQuick.Controls 1.4
 import QtQuick.Layouts 1.2
 
 Item {
-    width: 640
+    id: item1
+    width: 840
     height: 480
 
     property alias button1: buttonPlay
@@ -12,6 +13,9 @@ Item {
     property alias barArea: barGraphArea1
     property alias progressBar: progressBar1
     property alias elapsedTime: text1
+    property alias buttonPre: buttonPre
+    property alias buttonNext: buttonNext
+    property alias stackView: stackView
 
     RowLayout {
         width: 265
@@ -35,20 +39,30 @@ Item {
             text: qsTr("File")
         }
     }
-
-    BarGraphArea {
-        id: barGraphArea1
+    StackView {
+        id: stackView
         x: 8
         y: 8
-        width: 624
+        width: 824
         height: 404
+        Rectangle {
+
+            width: 824
+            height: 404
+            BarGraphArea {
+                id: barGraphArea1
+
+                width: 824
+                height: 404
+            }
+        }
     }
 
     ProgressBar {
         id: progressBar1
         x: 8
         y: 418
-        width: 624
+        width: 824
         height: 23
     }
 
@@ -60,6 +74,36 @@ Item {
         height: 15
         text: qsTr("00:00 / 00:00")
         font.pixelSize: 12
+    }
+
+    RowLayout {
+        id: rowLayout1
+        x: 629
+        y: 447
+        width: 220
+        height: 25
+        anchors.right: parent.right
+        anchors.rightMargin: 8
+        anchors.bottom: parent.bottom
+        anchors.bottomMargin: 8
+
+        Text {
+            id: text2
+            text: qsTr("Effect:")
+            font.pixelSize: 12
+        }
+
+        Button {
+            id: buttonPre
+            text: qsTr("<-")
+        }
+
+        Button {
+            id: buttonNext
+            text: qsTr("->")
+        }
+
+
     }
 }
 

@@ -3,10 +3,11 @@ import QtQuick.Controls 1.4
 import QtQuick.Dialogs 1.2
 
 import AudioPlayer 1.0
+import "qrc:/../EffectList.js" as EffectList
 
 ApplicationWindow {
     visible: true
-    width: 640
+    width: 840
     height: 480
     title: qsTr("Music")
 
@@ -18,13 +19,30 @@ ApplicationWindow {
             barArea.cleanBar()
         }
         button3.onClicked: fileSelector.visible = true
+        buttonPre.onClicked: {
+
+            if(stackView.depth > 1) {
+                stackView.pop();
+                EffectList.index -=1;
+            } else if (stackView.depth == 1) {
+                stackView.clear();
+                EffectList.index = 0;
+            }
+        }
+        buttonNext.onClicked: {
+            if (EffectList.effectArray.length > EffectList.index) {
+                stackView.push(EffectList.effectArray[EffectList.index]);
+                EffectList.index +=1;
+            }
+        }
     }
+
 
     FileDialog {
         id:fileSelector
         title: qsTr("选择一个音乐文件")
         selectMultiple: true;
-//        nameFilters: [  qsTr("*.wav") ]
+        //        nameFilters: [  qsTr("*.wav") ]
         onAccepted: {
             var path = fileSelector.fileUrl.toString();
             // remove prefixed "file:///"

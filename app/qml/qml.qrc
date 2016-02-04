@@ -4,6 +4,9 @@
         <file>BarItem.qml</file>
         <file>BarGraphArea.qml</file>
         <file>MainForm.ui.qml</file>
+        <file>ParticleEffect1.qml</file>
+        <file>../star.png</file>
+        <file>ParticleEffect2.qml</file>
+        <file>../EffectList.js</file>
     </qresource>
 </RCC>
-
