@@ -51,8 +51,7 @@ Rectangle {
     ImageParticle {
         source: "qrc:/../star.png"
         system: particleSystem
-        alpha: 0
-        colorVariation: 0.9
+        color: "#5f56f4"
     }
 
     Connections {

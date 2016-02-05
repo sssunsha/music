@@ -8,5 +8,7 @@
         <file>../star.png</file>
         <file>ParticleEffect2.qml</file>
         <file>../EffectList.js</file>
+        <file>ParticleEffect3.qml</file>
+        <file>../glowdot.png</file>
     </qresource>
 </RCC>
