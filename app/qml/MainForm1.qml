@@ -1,5 +1,6 @@
 import QtQuick 2.5
 import QtQuick.Controls 1.4
+import QtQuick.Controls.Styles 1.4
 import QtQuick.Layouts 1.2
 import "qrc:Constant.js" as Constant
 
@@ -18,55 +19,79 @@ Item {
     property alias buttonNext: buttonNext
     property alias stackView: stackView
 
-    RowLayout {
-        id : control_layout
+    Rectangle {
+        id : control_view
         anchors.bottom: parent.bottom
-        anchors.bottomMargin: Constant.control_margin
-        anchors.topMargin: Constant.control_margin
         width: Constant.control_width
-        height:Constant.control_height
+        height:Constant.control_height + Constant.control_margin * 2
+        color: Constant.control_bgcolor
 
-        Button {
-            id: buttonPlay
-            text: qsTr("Play")
+        RowLayout {
+            id : control_layout
+            anchors.centerIn: parent
+            anchors.bottomMargin: Constant.control_margin
+            anchors.topMargin: Constant.control_margin
+
+            Button {
+                id: buttonPlay
+                text: qsTr("Play")
+            }
+
+            Button {
+                id: buttonPause
+                text: qsTr("Pause")
+            }
+
+            Button {
+                id: buttonFileSelector
+                text: qsTr("File")
+            }
+
+            ProgressBar {
+                id: progressBar1
+                style: ProgressBarStyle {
+                    background: Rectangle {
+                        radius: 5
+                        color: Constant.process_background_color
+                        border.color: Constant.process_background_border_color
+                        border.width: 1
+                        implicitWidth: Constant.process_bar_width
+                        implicitHeight: Constant.process_bar_heigh
+                    }
+                    progress: Rectangle {
+                        color: Constant.process_bar_color
+                        border.color: Constant.process_bar_border_colr
+                    }
+                }
+            }
+
+            Text {
+                id: text1
+                text: qsTr("00:00 / 00:00")
+                color: "#00FF00"
+                font.pixelSize: Constant.text_size
+            }
+
+            Text {
+                id: text2
+//                text: qsTr("Effect:")
+                color : "white"
+                font.pixelSize: Constant.text_size
+            }
+
+            Button {
+                id: buttonPre
+                text: qsTr("<-")
+            }
+
+            Button {
+                id: buttonNext
+                text: qsTr("->")
+            }
         }
 
-        Button {
-            id: buttonPause
-            text: qsTr("Pause")
-        }
-
-        Button {
-            id: buttonFileSelector
-            text: qsTr("File")
-        }
-
-        ProgressBar {
-            id: progressBar1
-        }
-
-        Text {
-            id: text1
-            text: qsTr("00:00 / 00:00")
-            font.pixelSize: Constant.text_size
-        }
-
-        Text {
-            id: text2
-            text: qsTr("Effect:")
-            font.pixelSize: Constant.text_size
-        }
-
-        Button {
-            id: buttonPre
-            text: qsTr("<-")
-        }
-
-        Button {
-            id: buttonNext
-            text: qsTr("->")
-        }
     }
+
     StackView {
         id: stackView
         anchors.top: parent.top

@@ -1,15 +1,18 @@
 import QtQuick 2.5
 import QtQuick.Controls 1.4
 import QtQuick.Dialogs 1.2
+import QtQuick.Controls.Styles 1.4
 
 import AudioPlayer 1.0
 import "qrc:/../EffectList.js" as EffectList
+import "qrc:Constant.js" as Constant
 
 ApplicationWindow {
+    id:root
     visible: true
-    width: 840
-    height: 480
-    title: qsTr("Music")
+    width: Constant.window_width
+    height: Constant.window_height
+    title: qsTr("Music")    
 
     MainForm1 {
         anchors.fill: parent
