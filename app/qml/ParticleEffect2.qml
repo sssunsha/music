@@ -5,13 +5,14 @@ import QtQuick.Window 2.2
 import AudioPlayer 1.0
 import QtQuick.Dialogs 1.2
 import AudioPlayer 1.0
+import "qrc:Constant.js" as Constant
 
 Rectangle {
     id: root
     color: "#1f1f1f"
 
-    width: 824
-    height: 404
+    width: Constant.visulation_width
+    height: Constant.visulation_height
 
 
 

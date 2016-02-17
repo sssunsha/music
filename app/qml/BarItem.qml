@@ -2,8 +2,8 @@
 
 Rectangle {
     id:root
-    width: 40
-    height: 100
+//    width: 40
+//    height: 100
     color: "transparent";
     property alias barHeight: barFg.height;
 

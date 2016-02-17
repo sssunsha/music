@@ -1,10 +1,11 @@
 import QtQuick 2.0
 import QtQuick.Particles 2.0
 import AudioPlayer 1.0
+import "qrc:Constant.js" as Constant
 
 Rectangle {
-    width: 824
-    height: 404
+    width: Constant.visulation_width
+    height: Constant.visulation_height
     color: "black"
     ParticleSystem {
         anchors.fill: parent

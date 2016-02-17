@@ -11,7 +11,7 @@ ApplicationWindow {
     height: 480
     title: qsTr("Music")
 
-    MainForm {
+    MainForm1 {
         anchors.fill: parent
         button1.onClicked: AudioPlayer.startPlayback()
         button2.onClicked: {
@@ -42,7 +42,7 @@ ApplicationWindow {
         id:fileSelector
         title: qsTr("选择一个音乐文件")
         selectMultiple: true;
-        //        nameFilters: [  qsTr("*.wav") ]
+                nameFilters: [  qsTr("*.wav *.mp3 *.wma *.ape *.aac")]
         onAccepted: {
             var path = fileSelector.fileUrl.toString();
             // remove prefixed "file:///"

@@ -10,5 +10,7 @@
         <file>../EffectList.js</file>
         <file>ParticleEffect3.qml</file>
         <file>../glowdot.png</file>
+        <file>MainForm1.qml</file>
+        <file>Constant.js</file>
     </qresource>
 </RCC>

@@ -1,19 +1,28 @@
 ﻿import QtQuick 2.0
 
 import AudioPlayer 1.0
+import "qrc:Constant.js" as Constant
+
 
 Rectangle {
     id:root
-    width: 200
-    height: 100
-    color: "white";
+//    width: 200
+//    height: 100
+    width: Constant.visulation_width
+    height: Constant.visulation_height
+    color: "black";
 
     property var barObject: [];
     property var component: Qt.createComponent("BarItem.qml");
-    property real spacing: 5;
-    property real barWidth: 20;
-    property real barInteral: spacing+barWidth;
-    property real barCount: 25;
+//    property real spacing: 5;
+//    property real barWidth: 20;
+//    property real barInteral: spacing+barWidth;
+//    property real barCount: 25;
+    property real spacing: Constant.bar_spacing;
+    property real barWidth: Constant.bar_width;
+    property real barInteral: Constant.bar_interal;
+    property real barCount: Constant.bar_count;
+
     property bool initialized: false;
 
 
