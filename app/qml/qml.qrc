@@ -12,5 +12,8 @@
         <file>../glowdot.png</file>
         <file>MainForm1.qml</file>
         <file>Constant.js</file>
+        <file>../image/Pause.png</file>
+        <file>../image/Play.png</file>
+        <file>../image/Plus.png</file>
     </qresource>
 </RCC>

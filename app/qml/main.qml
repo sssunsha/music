@@ -12,16 +12,29 @@ ApplicationWindow {
     visible: true
     width: Constant.window_width
     height: Constant.window_height
-    title: qsTr("Music")    
+    title: qsTr("Music")
 
     MainForm1 {
         anchors.fill: parent
-        button1.onClicked: AudioPlayer.startPlayback()
-        button2.onClicked: {
-            AudioPlayer.suspend()
-            barArea.cleanBar()
+
+        buttonPlay.onClicked:{
+            AudioPlayer.startPlayback()
+            buttonPlay.enabled = false;
+            buttonPlay.visible = false;
+            buttonPause.enabled = true;
+            buttonPause.visible = true;
         }
-        button3.onClicked: fileSelector.visible = true
+
+        buttonPause.onClicked: {
+            AudioPlayer.suspend()
+            buttonPlay.enabled = true;
+            buttonPlay.visible = true;
+            buttonPause.enabled = false;
+            buttonPause.visible = false;
+        }
+
+        buttonFileSelector.onClicked: fileSelector.visible = true
+
         buttonPre.onClicked: {
 
             if(stackView.depth > 1) {
@@ -45,7 +58,7 @@ ApplicationWindow {
         id:fileSelector
         title: qsTr("选择一个音乐文件")
         selectMultiple: true;
-                nameFilters: [  qsTr("*.wav *.mp3 *.wma *.ape *.aac")]
+        nameFilters: [  qsTr("*.wav *.mp3 *.wma *.ape *.aac")]
         onAccepted: {
             var path = fileSelector.fileUrl.toString();
             // remove prefixed "file:///"

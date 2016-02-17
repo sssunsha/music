@@ -9,15 +9,17 @@ Item {
     width: Constant.window_width
     height: Constant.window_height
 
-    property alias button1: buttonPlay
-    property alias button2: buttonPause
-    property alias button3: buttonFileSelector
+    property alias buttonPlay: buttonPlay
+    property alias buttonPause: buttonPause
+    property alias buttonFileSelector: buttonFileSelector
     property alias barArea: barGraphArea1
     property alias progressBar: progressBar1
     property alias elapsedTime: text1
     property alias buttonPre: buttonPre
     property alias buttonNext: buttonNext
     property alias stackView: stackView
+
+
 
     Rectangle {
         id : control_view
@@ -34,17 +36,22 @@ Item {
 
             Button {
                 id: buttonPlay
-                text: qsTr("Play")
+                iconName: qsTr("Play")
+                iconSource: "qrc:/../image/Play.png"
             }
 
             Button {
                 id: buttonPause
-                text: qsTr("Pause")
+                iconName: qsTr("Pause")
+                iconSource: "qrc:/../image/Pause.png"
+                enabled: false
+                visible: false
             }
 
             Button {
                 id: buttonFileSelector
-                text: qsTr("File")
+                iconName: qsTr("File")
+                iconSource: "qrc:/../image/Plus.png"
             }
 
             ProgressBar {
@@ -74,7 +81,7 @@ Item {
 
             Text {
                 id: text2
-//                text: qsTr("Effect:")
+                //                text: qsTr("Effect:")
                 color : "white"
                 font.pixelSize: Constant.text_size
             }
