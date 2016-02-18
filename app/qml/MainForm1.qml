@@ -153,6 +153,7 @@ Item {
                     if(form != -1)
                     {
                         // jump to the correct effect view
+                        mainForm.handleEffectChoosing(form.effect_index);
                     }
                 }
             }

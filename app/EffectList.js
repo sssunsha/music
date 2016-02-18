@@ -4,5 +4,3 @@ effectArray.push("qrc:/ParticleEffect1.qml");
 effectArray.push("qrc:/ParticleEffect2.qml");
 effectArray.push("qrc:/ParticleEffect3.qml");
 // add new effect by effectArray.push("your effect qml file");
-
-

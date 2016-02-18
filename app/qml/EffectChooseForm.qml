@@ -20,6 +20,7 @@ Rectangle {
 
         Rectangle {
             id : effect1_choose_form
+            property int effect_index: 0
             anchors.left: parent.left
             anchors.right: parent.right
             anchors.leftMargin: Constant.effect_choose_layoutMargin
@@ -38,6 +39,7 @@ Rectangle {
 
         Rectangle {
             id : effect2_choose_form
+            property int effect_index: 1
             anchors.left: parent.left
             anchors.right: parent.right
             anchors.leftMargin: Constant.effect_choose_layoutMargin
@@ -57,6 +59,7 @@ Rectangle {
 
         Rectangle {
             id : effect3_choose_form
+            property int effect_index: 2
             anchors.left: parent.left
             anchors.right: parent.right
             anchors.leftMargin: Constant.effect_choose_layoutMargin
@@ -76,6 +79,7 @@ Rectangle {
 
         Rectangle {
             id : effect4_choose_form
+            property int effect_index: 3
             anchors.left: parent.left
             anchors.right: parent.right
             anchors.leftMargin: Constant.effect_choose_layoutMargin

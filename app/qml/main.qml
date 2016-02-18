@@ -7,12 +7,15 @@ import AudioPlayer 1.0
 import "qrc:/../EffectList.js" as EffectList
 import "qrc:Constant.js" as Constant
 
-ApplicationWindow {
+ApplicationWindow {    
     id:root
     visible: true
     width: Constant.window_width
     height: Constant.window_height
     title: qsTr("Music")
+
+    property alias mainWindow: root
+    property alias mainForm: mainForm1
 
     MainForm1 {
         id:mainForm1
@@ -55,6 +58,24 @@ ApplicationWindow {
                 EffectList.index +=1;
             }
         }
+
+        function handleEffectChoosing(effectIndex ){
+            console.log(effectIndex + " effect is chosen ...")
+            stackView.clear();
+            switch(effectIndex)
+            {
+            case 0:
+                // show the default effect, so do nothing
+                break;
+            case 1:
+            case 2:
+            case 3:
+                stackView.push(EffectList.effectArray[effectIndex -1]);
+                break;
+            default:
+                break;
+            }
+        }
     }
 
 
@@ -79,6 +100,5 @@ ApplicationWindow {
             AudioPlayer.loadFile(path)
         }
     }
-
 }
 
