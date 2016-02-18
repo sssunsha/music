@@ -39,7 +39,7 @@ var effect_choose_form_height = visulation_height;
 var effect_choose_form_border_pressed_color = "#3A5FCD";
 var effect_choose_form_border_release_color = "#404040";
 var effect_choose_form_border_width = 3;
-
+var effect_choose_form_Image_scale = 0.9;
 
 var effect_choose_form_color = "#292929"
 var effect_choose_effectCount = 4;

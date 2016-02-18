@@ -9,7 +9,7 @@ Rectangle {
     //    anchors.right: parent.right
     anchors.top: parent.top
     anchors.bottom: parent.bottom
-    opacity: 0.5
+    opacity: 0.8
     color: Constant.effect_choose_form_color
 
     ColumnLayout{
@@ -28,7 +28,12 @@ Rectangle {
             height: Constant.effect_choose_chooseFormHeight
             border.color: Constant.effect_choose_form_border_release_color
             border.width: Constant.effect_choose_form_border_width
-            color: "red"
+            color : Constant.effect_choose_form_color
+            Image {
+                anchors.fill: parent
+                scale: Constant.effect_choose_form_Image_scale
+                source : "qrc:/../image/effect1.png"
+            }
         }
 
         Rectangle {
@@ -41,7 +46,13 @@ Rectangle {
             height: Constant.effect_choose_chooseFormHeight
             border.color: Constant.effect_choose_form_border_release_color
             border.width: Constant.effect_choose_form_border_width
-            color: "yellow"
+            color : Constant.effect_choose_form_color
+            Image {
+                anchors.fill: parent
+                scale: Constant.effect_choose_form_Image_scale
+                source : "qrc:/../image/effect2.png"
+            }
+
         }
 
         Rectangle {
@@ -54,7 +65,13 @@ Rectangle {
             height: Constant.effect_choose_chooseFormHeight
             border.color: Constant.effect_choose_form_border_release_color
             border.width: Constant.effect_choose_form_border_width
-            color: "green"
+            color : Constant.effect_choose_form_color
+            Image {
+                anchors.fill: parent
+                scale: Constant.effect_choose_form_Image_scale
+                source : "qrc:/../image/effect3.png"
+            }
+
         }
 
         Rectangle {
@@ -67,7 +84,13 @@ Rectangle {
             height: Constant.effect_choose_chooseFormHeight
             border.color: Constant.effect_choose_form_border_release_color
             border.width: Constant.effect_choose_form_border_width
-            color: "blue"
+            color : Constant.effect_choose_form_color
+            Image {
+                anchors.fill: parent
+                scale: Constant.effect_choose_form_Image_scale
+                source : "qrc:/../image/effect4.png"
+            }
+
         }
     }
 
