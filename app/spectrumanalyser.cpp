@@ -151,7 +151,7 @@ void SpectrumAnalyserThread::calculateSpectrum(const QByteArray &buffer,
     const FrequencySpectrum::const_iterator end = m_spectrum.end();
     for ( ; i != end; ++i) {
          const FrequencySpectrum::Element e = *i;
-        qDebug() << "SpectrumAnalyserThread::calculateSpectrum:" << e.frequency;
+//        qDebug() << "SpectrumAnalyserThread::calculateSpectrum:" << e.frequency;
     }
 
 

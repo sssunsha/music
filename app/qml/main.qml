@@ -87,10 +87,10 @@ ApplicationWindow {
                         + "\t" +  fileSelector.audioFilePath;
 
                 break;
-            case 1:
             case 2:
                 // set progressbar value to 1
                 mainForm.progressBar.value = 1;
+            case 1:
             case 3:
                 //reset the title
                 root.title = qsTr(Constant.default_title);
