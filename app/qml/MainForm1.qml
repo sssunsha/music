@@ -112,6 +112,7 @@ Item {
         }
 
         EffectChooseForm {
+            z: 100
             id: effect_choose_form
             property bool isVisible: false
             x : (isVisible === false) ?  Constant.visulation_width
