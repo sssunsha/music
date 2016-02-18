@@ -20,6 +20,10 @@ Rectangle {
         color:"transparent";
         clip: true;
 
+        Behavior on height{
+            NumberAnimation { duration: 100 }
+        }
+
         Rectangle{
             id:barBgColor
             anchors.left: parent.left;

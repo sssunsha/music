@@ -35,6 +35,7 @@ Rectangle {
         }
     }
 
+
     function createBarArea(){
         console.log("barCount:", barCount);
         barCount = Math.round(barCount);
@@ -46,7 +47,7 @@ Rectangle {
                                                     "height":root.height,
                                                     "anchors.bottom":root.bottom,
                                                     "barHeight":0,
-                                                });
+                                                        });
             barObject.push(object);
         }
     }
