@@ -206,7 +206,10 @@ void Engine::audioNotify()
                     }
                     qDebug() << "Engine::audioNotify [2]" << "m_bufferPosition: " << m_bufferPosition;
                     qDebug() << "Engine::audioNotify [2]" << "m_dataLength: " << m_dataLength;
-                    emit bufferChanged(m_bufferPosition, m_dataLength, m_buffer);
+                    //emit bufferChanged(m_bufferPosition, m_dataLength, m_buffer);
+
+                    //for more accurate progress bar value
+                    emit bufferChanged(playPosition, m_dataLength, m_buffer);
                 }
             } else {
                 if (playPosition >= m_dataLength)
