@@ -1,5 +1,5 @@
 // constant value for project
-
+var default_title = "Music";
 
 
 // Constant Value for ui

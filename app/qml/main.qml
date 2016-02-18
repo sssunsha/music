@@ -12,7 +12,7 @@ ApplicationWindow {
     visible: true
     width: Constant.window_width
     height: Constant.window_height
-    title: qsTr("Music")
+    title: qsTr(Constant.default_title)
 
     property alias mainWindow: root
     property alias mainForm: mainForm1
@@ -23,41 +23,16 @@ ApplicationWindow {
 
         buttonPlay.onClicked:{
             AudioPlayer.startPlayback()
-            buttonPlay.enabled = false;
-            buttonPlay.visible = false;
-            buttonPause.enabled = true;
-            buttonPause.visible = true;
         }
 
         buttonPause.onClicked: {
             AudioPlayer.suspend()
-            buttonPlay.enabled = true;
-            buttonPlay.visible = true;
-            buttonPause.enabled = false;
-            buttonPause.visible = false;
         }
 
         buttonFileSelector.onClicked: {
 
             fileSelector.visible = true
         }
-
-//        buttonPre.onClicked: {
-
-//            if(stackView.depth > 1) {
-//                stackView.pop();
-//                EffectList.index -=1;
-//            } else if (stackView.depth == 1) {
-//                stackView.clear();
-//                EffectList.index = 0;
-//            }
-//        }
-//        buttonNext.onClicked: {
-//            if (EffectList.effectArray.length > EffectList.index) {
-//                stackView.push(EffectList.effectArray[EffectList.index]);
-//                EffectList.index +=1;
-//            }
-//        }
 
         function handleEffectChoosing(effectIndex ){
             console.log(effectIndex + " effect is chosen ...")
@@ -81,23 +56,50 @@ ApplicationWindow {
 
     FileDialog {
         id:fileSelector
+        property var audioFilePath: ""
         title: qsTr("选择一个音乐文件")
         selectMultiple: true;
         nameFilters: [  qsTr("*.wav *.mp3 *.wma *.ape *.aac")]
         onAccepted: {
             var path = fileSelector.fileUrl.toString();
-            // remove prefixed "file:///"
-            path = path.replace(/^(file:\/{2})|(qrc:\/{2})|(http:\/{2})/,"");
-            // unescape html codes like '%23' for '#'
+            audioFilePath = path;
             console.log(path)
 
             AudioPlayer.suspend()
-            mainForm1.buttonPlay.enabled = true;
-            mainForm1.buttonPlay.visible = true;
-            mainForm1.buttonPause.enabled = false;
-            mainForm1.buttonPause.visible = false;
-
             AudioPlayer.loadFile(path)
+        }
+    }
+
+    Connections {
+        target: AudioPlayer
+        onStateChanged:{
+//            console.log("AudioPlayer state is " + state);
+            switch(state)
+            {
+            case 0:
+                mainForm1.buttonPlay.enabled = false;
+                mainForm1.buttonPlay.visible = false;
+                mainForm1.buttonPause.enabled = true;
+                mainForm1.buttonPause.visible = true;
+
+                // update title to show the state
+                root.title = qsTr(Constant.default_title) + qsTr("\tplaying")
+                        + "\t" +  fileSelector.audioFilePath;
+
+                break;
+            case 2:
+                // set progressbar value to 1
+                mainForm.progressBar.value = 1;
+            case 1:
+            case 3:
+                //reset the title
+                root.title = qsTr(Constant.default_title);
+                mainForm1.buttonPlay.enabled = true;
+                mainForm1.buttonPlay.visible = true;
+                mainForm1.buttonPause.enabled = false;
+                mainForm1.buttonPause.visible = false;
+                break;
+            }
         }
     }
 }
