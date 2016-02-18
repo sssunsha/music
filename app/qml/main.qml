@@ -15,6 +15,7 @@ ApplicationWindow {
     title: qsTr("Music")
 
     MainForm1 {
+        id:mainForm1
         anchors.fill: parent
 
         buttonPlay.onClicked:{
@@ -33,7 +34,10 @@ ApplicationWindow {
             buttonPause.visible = false;
         }
 
-        buttonFileSelector.onClicked: fileSelector.visible = true
+        buttonFileSelector.onClicked: {
+
+            fileSelector.visible = true
+        }
 
         buttonPre.onClicked: {
 
@@ -65,6 +69,13 @@ ApplicationWindow {
             path = path.replace(/^(file:\/{2})|(qrc:\/{2})|(http:\/{2})/,"");
             // unescape html codes like '%23' for '#'
             console.log(path)
+
+            AudioPlayer.suspend()
+            mainForm1.buttonPlay.enabled = true;
+            mainForm1.buttonPlay.visible = true;
+            mainForm1.buttonPause.enabled = false;
+            mainForm1.buttonPause.visible = false;
+
             AudioPlayer.loadFile(path)
         }
     }

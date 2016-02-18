@@ -15,5 +15,6 @@
         <file>../image/Pause.png</file>
         <file>../image/Play.png</file>
         <file>../image/Plus.png</file>
+        <file>EffectChooseForm.qml</file>
     </qresource>
 </RCC>

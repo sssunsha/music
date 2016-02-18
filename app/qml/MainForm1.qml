@@ -19,8 +19,6 @@ Item {
     property alias buttonNext: buttonNext
     property alias stackView: stackView
 
-
-
     Rectangle {
         id : control_view
         anchors.bottom: parent.bottom
@@ -112,5 +110,75 @@ Item {
                 anchors.fill: parent
             }
         }
+
+        EffectChooseForm {
+            id: effect_choose_form
+            property bool isVisible: false
+            x : (isVisible === false) ?  Constant.visulation_width
+                                      : Constant.visulation_width - Constant.effect_choose_form_width
+            Behavior on x {
+                SmoothedAnimation { velocity: 200 }
+            }
+        }
+
+        Timer{
+            id:effect_choose_timer
+            running: false
+            interval: Constant.effect_choose_form_time_interval;
+            onTriggered: {
+                // close the effect choose form
+                effect_choose_form.isVisible = false;
+            }
+        }
+
+
+        MouseArea {
+            id : effect_choose_form_mousearea
+            anchors.top: parent.top
+            anchors.bottom: parent.bottom
+            anchors.right: parent.right
+            width: effect_choose_form.width
+            onClicked: {
+                if(effect_choose_form.isVisible === false)
+                {
+                    // show the effect choose form
+                    effect_choose_form.isVisible = true
+                    effect_choose_timer.start();
+                }
+                else
+                {
+                    // caculate the right effect choosed
+                    //                    console.log("mouse.x = " + mouse.x + " mouse.y = " + mouse.y);
+                    var form = effect_choose_form.getMouseEventEffect(mouse);
+                    if(form != -1)
+                    {
+                        // jump to the correct effect view
+                    }
+                }
+            }
+            onPressed: {
+                var form = effect_choose_form.getMouseEventEffect(mouse);
+                if(form != -1)
+                {
+                    form.border.color = Constant.effect_choose_form_border_pressed_color;
+                }
+
+            }
+            onReleased: {
+                // restart the timer
+                effect_choose_timer.restart();
+
+                var form = effect_choose_form.getMouseEventEffect(mouse);
+                if(form != -1)
+                {
+                    form.border.color =  Constant.effect_choose_form_border_release_color;
+                }
+
+            }
+        }
+
     }
+
 }
+
+
