@@ -42,22 +42,22 @@ ApplicationWindow {
             fileSelector.visible = true
         }
 
-        buttonPre.onClicked: {
+//        buttonPre.onClicked: {
 
-            if(stackView.depth > 1) {
-                stackView.pop();
-                EffectList.index -=1;
-            } else if (stackView.depth == 1) {
-                stackView.clear();
-                EffectList.index = 0;
-            }
-        }
-        buttonNext.onClicked: {
-            if (EffectList.effectArray.length > EffectList.index) {
-                stackView.push(EffectList.effectArray[EffectList.index]);
-                EffectList.index +=1;
-            }
-        }
+//            if(stackView.depth > 1) {
+//                stackView.pop();
+//                EffectList.index -=1;
+//            } else if (stackView.depth == 1) {
+//                stackView.clear();
+//                EffectList.index = 0;
+//            }
+//        }
+//        buttonNext.onClicked: {
+//            if (EffectList.effectArray.length > EffectList.index) {
+//                stackView.push(EffectList.effectArray[EffectList.index]);
+//                EffectList.index +=1;
+//            }
+//        }
 
         function handleEffectChoosing(effectIndex ){
             console.log(effectIndex + " effect is chosen ...")

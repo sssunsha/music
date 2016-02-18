@@ -15,8 +15,8 @@ Item {
     property alias barArea: barGraphArea1
     property alias progressBar: progressBar1
     property alias elapsedTime: text1
-    property alias buttonPre: buttonPre
-    property alias buttonNext: buttonNext
+//    property alias buttonPre: buttonPre
+//    property alias buttonNext: buttonNext
     property alias stackView: stackView
 
     Rectangle {
@@ -77,22 +77,22 @@ Item {
                 font.pixelSize: Constant.text_size
             }
 
-            Text {
-                id: text2
-                //                text: qsTr("Effect:")
-                color : "white"
-                font.pixelSize: Constant.text_size
-            }
+//            Text {
+//                id: text2
+//                //                text: qsTr("Effect:")
+//                color : "white"
+//                font.pixelSize: Constant.text_size
+//            }
 
-            Button {
-                id: buttonPre
-                text: qsTr("<-")
-            }
+//            Button {
+//                id: buttonPre
+//                text: qsTr("<-")
+//            }
 
-            Button {
-                id: buttonNext
-                text: qsTr("->")
-            }
+//            Button {
+//                id: buttonNext
+//                text: qsTr("->")
+//            }
         }
 
     }

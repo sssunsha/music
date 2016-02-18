@@ -16,7 +16,7 @@ var control_bgcolor = "#454545"
 
 
 var process_bar_heigh = 10;
-var process_bar_width = (control_width / 2) ;
+var process_bar_width = (control_width / 4) *3 ;
 var process_background_color = "#787878";
 var process_background_border_color = "gray";
 var process_bar_color = "#104E8B";
