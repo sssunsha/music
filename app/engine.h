@@ -147,7 +147,7 @@ signals:
 
     void barDataChanged(QList<int> barData);
 
-    void progressChanged(qreal position);
+    void progressChanged(qreal position);  
 
     void elapsedTimeChanged(qreal current, qreal duration);
 

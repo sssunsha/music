@@ -23,41 +23,16 @@ ApplicationWindow {
 
         buttonPlay.onClicked:{
             AudioPlayer.startPlayback()
-            buttonPlay.enabled = false;
-            buttonPlay.visible = false;
-            buttonPause.enabled = true;
-            buttonPause.visible = true;
         }
 
         buttonPause.onClicked: {
             AudioPlayer.suspend()
-            buttonPlay.enabled = true;
-            buttonPlay.visible = true;
-            buttonPause.enabled = false;
-            buttonPause.visible = false;
         }
 
         buttonFileSelector.onClicked: {
 
             fileSelector.visible = true
         }
-
-//        buttonPre.onClicked: {
-
-//            if(stackView.depth > 1) {
-//                stackView.pop();
-//                EffectList.index -=1;
-//            } else if (stackView.depth == 1) {
-//                stackView.clear();
-//                EffectList.index = 0;
-//            }
-//        }
-//        buttonNext.onClicked: {
-//            if (EffectList.effectArray.length > EffectList.index) {
-//                stackView.push(EffectList.effectArray[EffectList.index]);
-//                EffectList.index +=1;
-//            }
-//        }
 
         function handleEffectChoosing(effectIndex ){
             console.log(effectIndex + " effect is chosen ...")
@@ -92,12 +67,33 @@ ApplicationWindow {
             console.log(path)
 
             AudioPlayer.suspend()
-            mainForm1.buttonPlay.enabled = true;
-            mainForm1.buttonPlay.visible = true;
-            mainForm1.buttonPause.enabled = false;
-            mainForm1.buttonPause.visible = false;
-
             AudioPlayer.loadFile(path)
+        }
+    }
+
+    Connections {
+        target: AudioPlayer
+        onStateChanged:{
+//            console.log("AudioPlayer state is " + state);
+            switch(state)
+            {
+            case 0:
+                mainForm1.buttonPlay.enabled = false;
+                mainForm1.buttonPlay.visible = false;
+                mainForm1.buttonPause.enabled = true;
+                mainForm1.buttonPause.visible = true;
+                break;
+            case 1:
+            case 2:
+                // set progressbar value to 1
+                mainForm.progressBar.value = 1;
+            case 3:
+                mainForm1.buttonPlay.enabled = true;
+                mainForm1.buttonPlay.visible = true;
+                mainForm1.buttonPause.enabled = false;
+                mainForm1.buttonPause.visible = false;
+                break;
+            }
         }
     }
 }
