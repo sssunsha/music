@@ -4,8 +4,12 @@ var default_title = "Music";
 
 // Constant Value for ui
 
-var window_width = 840;
-var window_height = 480;
+//var window_width = 840;
+//var window_height = 480;
+
+var window_width = 1280;
+var window_height = 1024;
+
 var window_bgcolor = "#212121"
 
 

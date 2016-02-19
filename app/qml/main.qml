@@ -2,6 +2,7 @@ import QtQuick 2.5
 import QtQuick.Controls 1.4
 import QtQuick.Dialogs 1.2
 import QtQuick.Controls.Styles 1.4
+import QtQuick.Window 2.2
 
 import AudioPlayer 1.0
 import "qrc:/../EffectList.js" as EffectList
@@ -14,6 +15,9 @@ ApplicationWindow {
     height: Constant.window_height
     title: qsTr(Constant.default_title)
 
+
+    property int screenWidth: Screen.width
+    property int screenHeight: Screen.height
     property alias mainWindow: root
     property alias mainForm: mainForm1
 
@@ -73,7 +77,7 @@ ApplicationWindow {
     Connections {
         target: AudioPlayer
         onStateChanged:{
-//            console.log("AudioPlayer state is " + state);
+            //            console.log("AudioPlayer state is " + state);
             switch(state)
             {
             case 0:
@@ -102,5 +106,10 @@ ApplicationWindow {
             }
         }
     }
+
+    Component.onCompleted: {
+        console.log("screen width = " + screenWidth + " screen height = " + screenHeight);
+    }
+
 }
 
