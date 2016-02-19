@@ -23,7 +23,7 @@ Item {
         id : control_view
         anchors.bottom: parent.bottom
         width: Constant.control_width
-        height:Constant.control_height + Constant.control_margin * 2
+        height:Constant.control_height + Constant.control_margin * 8
         color: Constant.control_bgcolor
 
         RowLayout {
@@ -118,7 +118,7 @@ Item {
             x : (isVisible === false) ?  Constant.visulation_width
                                       : Constant.visulation_width - Constant.effect_choose_form_width
             Behavior on x {
-                SmoothedAnimation { velocity: 200 }
+                SmoothedAnimation { velocity: 500 }
             }
         }
 

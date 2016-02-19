@@ -30,7 +30,7 @@ Rectangle {
             width: 1; height: 1;
             system: particleSystem
             emitRate: 100
-            lifeSpan: 400
+            lifeSpan: Constant.life_span_effect1;
             size: 32
             endSize: 50
             velocity: AngleDirection {

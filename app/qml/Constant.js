@@ -8,7 +8,7 @@ var default_title = "Music";
 //var window_height = 480;
 
 var window_width = 2048;
-var window_height = 1536;
+var window_height = 1440;
 
 var window_bgcolor = "#212121"
 
@@ -28,7 +28,7 @@ var process_bar_border_colr = "steelblue";
 
 
 
-var visulation_height = window_height - control_height - (control_margin * 2);
+var visulation_height = window_height - control_height - (control_margin * 16);
 var visulation_width = window_width;
 
 
@@ -58,6 +58,8 @@ var effect_choose_form_time_interval = 3000;
 
 var text_size = 10;
 
+var life_span_effect1 = 900;
+var life_span_effect2 = 2000;
 
 
 

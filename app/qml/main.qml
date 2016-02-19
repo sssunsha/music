@@ -68,9 +68,8 @@ ApplicationWindow {
             var path = fileSelector.fileUrl.toString();
             audioFilePath = path;
             console.log(path)
-
             AudioPlayer.suspend()
-            AudioPlayer.loadFile(path)
+            AudioPlayer.loadFile("/sdcard/Music/SadAngle.wav")
         }
     }
 
