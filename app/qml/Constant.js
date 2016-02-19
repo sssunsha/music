@@ -7,8 +7,8 @@ var default_title = "Music";
 //var window_width = 840;
 //var window_height = 480;
 
-var window_width = 1280;
-var window_height = 1024;
+var window_width = 2048;
+var window_height = 1536;
 
 var window_bgcolor = "#212121"
 
