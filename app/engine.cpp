@@ -58,6 +58,19 @@ Engine::Engine(QObject *parent)
 
     connect(this, SIGNAL(bufferChanged(qint64, qint64, const QByteArray)),this,SLOT(handleBufferChanged(qint64, qint64, const QByteArray)));
 
+    // check the system for the app
+#ifdef Q_OS_LINUX
+    _OS = Linux;
+#elif Q_OS_WIN
+    _OS = Windows
+#elif Q_OS_ANDROID
+    _OS = Android;
+#elif Q_OS_IOS
+    _OS = Ios;
+#elif Q_OS_MAC
+    _OS = Mac;
+#endif
+
     initialize();
 
     m_bar.resize(SpectrumNumBands);
@@ -113,6 +126,10 @@ qint64 Engine::bufferLength() const
     return m_file ? m_file->size() : m_bufferLength;
 }
 
+Engine::EOS Engine::get_os()
+{
+    return this->_OS;
+}
 
 //-----------------------------------------------------------------------------
 // Public slots
@@ -168,7 +185,6 @@ void Engine::setAudioOutputDevice(const QAudioDeviceInfo &device)
         initialize();
     }
 }
-
 
 //-----------------------------------------------------------------------------
 // Private slots

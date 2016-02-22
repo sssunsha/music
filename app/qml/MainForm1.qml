@@ -23,7 +23,7 @@ Item {
         id : control_view
         anchors.bottom: parent.bottom
         width: util.control_width
-        height:util.control_height + util.control_margin * 8
+        height:util.control_view_height
         color: util.control_bgcolor
 
         RowLayout {

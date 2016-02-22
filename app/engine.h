@@ -81,6 +81,12 @@ public:
      */
     qint64 dataLength() const { return m_dataLength; }
 
+
+    enum EOS { Linux, Windows, Android, Ios, Mac };
+    Q_ENUM(EOS)
+
+    Q_INVOKABLE Engine::EOS get_os();
+
 public slots:
     Q_INVOKABLE void startPlayback();
     Q_INVOKABLE void suspend();
@@ -214,6 +220,8 @@ private:
     FrequencySpectrum   m_spectrum;
     QVector<int>        m_bar;
     QList<int>          m_barData;
+
+    EOS _OS;
 };
 
 #endif // ENGINE_H

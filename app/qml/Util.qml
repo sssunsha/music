@@ -1,10 +1,13 @@
 import QtQuick 2.5
+import AudioPlayer 1.0
 
 Item {    
 
     // constant value for project
     property string default_title : "Tieto Music"
 
+    // 0: linux 1: windows 2:android 3:ios 4;mac
+    property  int os: 0
 
     // Constant Value for ui
 
@@ -16,6 +19,7 @@ Item {
 
     property int control_width: window_width
     property int control_height: window_height /20
+    property int control_view_height: control_height + control_margin * 2
     property int control_margin: 5
     property string control_bgcolor : "#454545"
 
@@ -30,7 +34,7 @@ Item {
 
     // for visualtion view
 
-    property int visulation_height: window_height - control_height - (control_margin * 16)
+    property int visulation_height: window_height - control_height - (control_margin * 2)
     property int visulation_width: window_width
 
     // for visualtion view bar
@@ -62,6 +66,80 @@ Item {
     property int text_size: 10
     property int life_span_effect1: 900
     property int life_span_effect2: 2000
+
+
+    // util self some var
+
+    // used to check whether the global var has been set for different OS
+    property  bool is_pre_var_set: false
+
+    Component.onCompleted: {
+        if(is_pre_var_set === false)
+        {
+            os = AudioPlayer.get_os();
+            console.log("os is ", os);
+            handle_different_os_4_global_var();
+            is_pre_var_set = true;
+        }
+    }
+
+    function handle_different_os_4_global_var(){
+          switch(os)
+          {
+          case 0:
+              // linux
+              handle_for_linux();
+              break;
+          case 1:
+              // windows
+              handle_for_windows();
+              break;
+          case 2:
+              // android, now is for Nexus 9
+            handle_for_android();
+              break;
+          case 3:
+              // ios
+            handle_for_ios();
+              break;
+          case 4:
+              // mac
+              handle_for_mac();
+              break;
+          }
+    }
+
+    function handle_for_linux(){
+
+        window_width = 840;
+        window_height = 480
+
+        visulation_height = window_height - control_height - (control_margin * 2);
+
+         control_view_height = control_height + control_margin * 2;
+
+    }
+
+    function handle_for_windows(){
+
+    }
+
+    function handle_for_android(){
+        window_width = 2048;
+        window_height = 1440
+
+        visulation_height = window_height - control_height - (control_margin * 16);
+
+        control_view_height = control_height + control_margin * 8;
+    }
+
+    function handle_for_ios(){
+
+    }
+
+    function handle_for_mac(){
+
+    }
 
 }
 
