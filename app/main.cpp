@@ -5,6 +5,7 @@
 #include "engine.h"
 
 
+// check the system for the app
 #ifdef Q_OS_LINUX
 
 #elif Q_OS_WIN

@@ -20,5 +20,6 @@
         <file>../image/effect2.png</file>
         <file>../image/effect3.png</file>
         <file>../image/effect4.png</file>
+        <file>Util.qml</file>
     </qresource>
 </RCC>

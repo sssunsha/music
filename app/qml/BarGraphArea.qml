@@ -1,21 +1,21 @@
 ﻿import QtQuick 2.0
 
 import AudioPlayer 1.0
-import "qrc:Constant.js" as Constant
+//import "qrc:Constant.js" as Constant
 
 
 Rectangle {
     id:root
-    width: Constant.visulation_width
-    height: Constant.visulation_height
-    color: Constant.window_bgcolor;
+    width: util.visulation_width
+    height: util.visulation_height
+    color: util.window_bgcolor;
 
     property var barObject: [];
     property var component: Qt.createComponent("BarItem.qml");
-    property real spacing: Constant.bar_spacing;
-    property real barWidth: Constant.bar_width;
-    property real barInteral: Constant.bar_interal;
-    property real barCount: Constant.bar_count;
+    property real spacing: util.bar_spacing;
+    property real barWidth: util.bar_width;
+    property real barInteral: util.bar_interal;
+    property real barCount: util.bar_count;
 
     property bool initialized: false;
 
@@ -47,7 +47,7 @@ Rectangle {
                                                     "height":root.height,
                                                     "anchors.bottom":root.bottom,
                                                     "barHeight":0,
-                                                        });
+                                                });
             barObject.push(object);
         }
     }
@@ -114,6 +114,10 @@ Rectangle {
             console.log("AudioPlayer.onElapsedTimeChanged: exit");
         }
 
+    }
+
+    Util{
+        id:util
     }
 
 }

@@ -5,14 +5,14 @@ import QtQuick.Window 2.2
 import AudioPlayer 1.0
 import QtQuick.Dialogs 1.2
 import AudioPlayer 1.0
-import "qrc:Constant.js" as Constant
+//import "qrc:Constant.js" as Constant
 
 Rectangle {
     id: root
     color: "#1f1f1f"
 
-    width: Constant.visulation_width
-    height: Constant.visulation_height
+    width: util.visulation_width
+    height: util.visulation_height
 
 
 
@@ -36,7 +36,7 @@ Rectangle {
                     anchors.bottomMargin: 1
                     system: particleSystem
                     emitRate: 100
-                    lifeSpan: Constant.life_span_effect2;
+                    lifeSpan: util.life_span_effect2;
                     size: 32
                     endSize: 32
                     velocity: AngleDirection {
@@ -63,6 +63,10 @@ Rectangle {
                 repeater.itemAt(i).children[0].emitRate = barData[i];
             }
         }
+    }
+
+    Util{
+        id:util
     }
 
 }

@@ -4,11 +4,12 @@ var default_title = "Music";
 
 // Constant Value for ui
 
-//var window_width = 840;
-//var window_height = 480;
+var window_width = 840;
+var window_height = 480;
 
-var window_width = 2048;
-var window_height = 1440;
+// for android pad
+//var window_width = 2048;
+//var window_height = 1440;
 
 var window_bgcolor = "#212121"
 
@@ -24,7 +25,7 @@ var process_bar_width = (control_width / 4) *3 ;
 var process_background_color = "#787878";
 var process_background_border_color = "gray";
 var process_bar_color = "#104E8B";
-var process_bar_border_colr = "steelblue";
+var process_bar_border_color = "steelblue";
 
 
 

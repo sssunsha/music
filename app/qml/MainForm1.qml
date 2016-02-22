@@ -2,12 +2,12 @@ import QtQuick 2.5
 import QtQuick.Controls 1.4
 import QtQuick.Controls.Styles 1.4
 import QtQuick.Layouts 1.2
-import "qrc:Constant.js" as Constant
+//import "qrc:Constant.js" as Constant
 
 Item {
     id: item1
-    width: Constant.window_width
-    height: Constant.window_height
+    width: util.window_width
+    height: util.window_height
 
     property alias buttonPlay: buttonPlay
     property alias buttonPause: buttonPause
@@ -15,22 +15,22 @@ Item {
     property alias barArea: barGraphArea1
     property alias progressBar: progressBar1
     property alias elapsedTime: text1
-//    property alias buttonPre: buttonPre
-//    property alias buttonNext: buttonNext
+    //    property alias buttonPre: buttonPre
+    //    property alias buttonNext: buttonNext
     property alias stackView: stackView
 
     Rectangle {
         id : control_view
         anchors.bottom: parent.bottom
-        width: Constant.control_width
-        height:Constant.control_height + Constant.control_margin * 8
-        color: Constant.control_bgcolor
+        width: util.control_width
+        height:util.control_height + util.control_margin * 8
+        color: util.control_bgcolor
 
         RowLayout {
             id : control_layout
             anchors.centerIn: parent
-            anchors.bottomMargin: Constant.control_margin
-            anchors.topMargin: Constant.control_margin
+            anchors.bottomMargin: util.control_margin
+            anchors.topMargin: util.control_margin
 
             Button {
                 id: buttonPlay
@@ -57,15 +57,15 @@ Item {
                 style: ProgressBarStyle {
                     background: Rectangle {
                         radius: 5
-                        color: Constant.process_background_color
-                        border.color: Constant.process_background_border_color
+                        color: util.process_background_color
+                        border.color: util.process_background_border_color
                         border.width: 1
-                        implicitWidth: Constant.process_bar_width
-                        implicitHeight: Constant.process_bar_heigh
+                        implicitWidth: util.process_bar_width
+                        implicitHeight: util.process_bar_heigh
                     }
                     progress: Rectangle {
-                        color: Constant.process_bar_color
-                        border.color: Constant.process_bar_border_colr
+                        color: util.process_bar_color
+                        border.color: util.process_bar_border_color
                     }
                 }
             }
@@ -74,25 +74,25 @@ Item {
                 id: text1
                 text: qsTr("00:00 / 00:00")
                 color: "#00FF00"
-                font.pixelSize: Constant.text_size
+                font.pixelSize: util.text_size
             }
 
-//            Text {
-//                id: text2
-//                //                text: qsTr("Effect:")
-//                color : "white"
-//                font.pixelSize: Constant.text_size
-//            }
+            //            Text {
+            //                id: text2
+            //                //                text: qsTr("Effect:")
+            //                color : "white"
+            //                font.pixelSize: util.text_size
+            //            }
 
-//            Button {
-//                id: buttonPre
-//                text: qsTr("<-")
-//            }
+            //            Button {
+            //                id: buttonPre
+            //                text: qsTr("<-")
+            //            }
 
-//            Button {
-//                id: buttonNext
-//                text: qsTr("->")
-//            }
+            //            Button {
+            //                id: buttonNext
+            //                text: qsTr("->")
+            //            }
         }
 
     }
@@ -100,8 +100,8 @@ Item {
     StackView {
         id: stackView
         anchors.top: parent.top
-        width : Constant.visulation_width
-        height : Constant.visulation_height
+        width : util.visulation_width
+        height : util.visulation_height
 
         Rectangle {
             anchors.fill: parent
@@ -115,8 +115,8 @@ Item {
             z: 100
             id: effect_choose_form
             property bool isVisible: false
-            x : (isVisible === false) ?  Constant.visulation_width
-                                      : Constant.visulation_width - Constant.effect_choose_form_width
+            x : (isVisible === false) ?  util.visulation_width
+                                      : util.visulation_width - util.effect_choose_form_width
             Behavior on x {
                 SmoothedAnimation { velocity: 500 }
             }
@@ -125,7 +125,7 @@ Item {
         Timer{
             id:effect_choose_timer
             running: false
-            interval: Constant.effect_choose_form_time_interval;
+            interval: util.effect_choose_form_time_interval;
             onTriggered: {
                 // close the effect choose form
                 effect_choose_form.isVisible = false;
@@ -162,7 +162,7 @@ Item {
                 var form = effect_choose_form.getMouseEventEffect(mouse);
                 if(form != -1)
                 {
-                    form.border.color = Constant.effect_choose_form_border_pressed_color;
+                    form.border.color = util.effect_choose_form_border_pressed_color;
                 }
 
             }
@@ -173,12 +173,16 @@ Item {
                 var form = effect_choose_form.getMouseEventEffect(mouse);
                 if(form != -1)
                 {
-                    form.border.color =  Constant.effect_choose_form_border_release_color;
+                    form.border.color =  util.effect_choose_form_border_release_color;
                 }
 
             }
         }
 
+    }
+
+    Util{
+        id:util
     }
 
 }

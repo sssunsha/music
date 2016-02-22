@@ -6,15 +6,16 @@ import QtQuick.Window 2.2
 
 import AudioPlayer 1.0
 import "qrc:/../EffectList.js" as EffectList
-import "qrc:Constant.js" as Constant
+//import "qrc:Constant.js" as Constant
+
+
 
 ApplicationWindow {    
     id:root
     visible: true
-    width: Constant.window_width
-    height: Constant.window_height
-    title: qsTr(Constant.default_title)
-
+    width: util.window_width
+    height: util.window_height
+    title: qsTr(util.default_title)
 
     property int screenWidth: Screen.width
     property int screenHeight: Screen.height
@@ -67,9 +68,10 @@ ApplicationWindow {
         onAccepted: {
             var path = fileSelector.fileUrl.toString();
             audioFilePath = path;
-            console.log(path)
-            AudioPlayer.suspend()
-            AudioPlayer.loadFile("/sdcard/Music/SadAngle.wav")
+            console.log(path);
+            AudioPlayer.suspend();
+            AudioPlayer.loadFile(audioFilePath);
+//            AudioPlayer.loadFile("/sdcard/Music/SadAngle.wav");
         }
     }
 
@@ -86,7 +88,7 @@ ApplicationWindow {
                 mainForm1.buttonPause.visible = true;
 
                 // update title to show the state
-                root.title = qsTr(Constant.default_title) + qsTr("\tplaying")
+                root.title = qsTr(util.default_title) + qsTr("\tplaying")
                         + "\t" +  fileSelector.audioFilePath;
 
                 break;
@@ -96,7 +98,7 @@ ApplicationWindow {
             case 1:
             case 3:
                 //reset the title
-                root.title = qsTr(Constant.default_title);
+                root.title = qsTr(util.default_title);
                 mainForm1.buttonPlay.enabled = true;
                 mainForm1.buttonPlay.visible = true;
                 mainForm1.buttonPause.enabled = false;
@@ -110,5 +112,8 @@ ApplicationWindow {
         console.log("screen width = " + screenWidth + " screen height = " + screenHeight);
     }
 
+    Util{
+        id:util
+    }
 }
 
