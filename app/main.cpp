@@ -4,6 +4,22 @@
 
 #include "engine.h"
 
+
+#ifdef Q_OS_LINUX
+
+#elif Q_OS_WIN
+
+#elif Q_OS_ANDROID
+
+#elif Q_OS_IOS
+
+#elif Q_OS_MAC
+
+#endif
+
+
+
+
 static QObject *provider(QQmlEngine *engine, QJSEngine *scriptEngine)
 {
     Q_UNUSED(engine);
