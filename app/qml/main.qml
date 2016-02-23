@@ -5,7 +5,7 @@ import QtQuick.Controls.Styles 1.4
 
 import AudioPlayer 1.0
 import "qrc:/../EffectList.js" as EffectList
-//import "qrc:Constant.js" as Constant
+import "qrc:Constant.js" as Constant
 
 
 
@@ -67,7 +67,7 @@ ApplicationWindow {
             // TODO: need to do the change for different OS
 
             audioFilePath = path;
-            console.log(path);
+            console.log("path = " + path);
             AudioPlayer.suspend();
             AudioPlayer.loadFile(audioFilePath);
 //            AudioPlayer.loadFile("/sdcard/Music/SadAngle.wav");
@@ -108,7 +108,24 @@ ApplicationWindow {
     }
 
     Component.onCompleted: {
-        console.log("root.contentItem.implicitHeight : "  + root.contentItem.implicitHeight );
+        switch(util.os)
+        {
+        case 0:
+            break;
+        case 1:
+            root.showFullScreen();
+            Constant.is_fullscreen = true;
+            break;
+        case 2:
+            break;
+        case 3:
+            break;
+        case 4:
+            break;
+        default:
+            break;
+        }
+
     }
 
     Util{

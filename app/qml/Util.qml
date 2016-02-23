@@ -124,7 +124,15 @@ Item {
     }
 
     function handle_for_windows(){
+//                window_width = 840;
+//                window_height = 480
 
+        window_width = screenWidth;
+        window_height = screenHeight;
+
+        visulation_height = window_height - control_height - (control_margin * 2);
+
+         control_view_height = control_height + control_margin * 2;
     }
 
     function handle_for_android(){

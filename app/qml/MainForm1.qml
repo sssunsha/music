@@ -2,7 +2,7 @@ import QtQuick 2.5
 import QtQuick.Controls 1.4
 import QtQuick.Controls.Styles 1.4
 import QtQuick.Layouts 1.2
-//import "qrc:Constant.js" as Constant
+import "qrc:Constant.js" as Constant
 
 Item {
     id: item1
@@ -132,7 +132,30 @@ Item {
                 effect_choose_form.isVisible = false;
             }
         }
+        MouseArea{
+            id : screen_handle_mousearea
+            anchors.top: parent.top
+            anchors.bottom: parent.bottom
+            anchors.left: parent.left
+            anchors.right: effect_choose_form_mousearea.left
 
+            onClicked: {
+
+            }
+
+            onDoubleClicked: {
+                if(Constant.is_fullscreen === true)
+                {
+                    mainWindow.showNormal();
+                    Constant.is_fullscreen = false;
+                }
+                else
+                {
+                    mainWindow.showFullScreen();
+                    Constant.is_fullscreen = true;
+                }
+            }
+        }
 
         MouseArea {
             id : effect_choose_form_mousearea
