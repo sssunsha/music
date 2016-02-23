@@ -1,11 +1,14 @@
 import QtQuick 2.5
 import AudioPlayer 1.0
+import QtQuick.Window 2.2
 import "qrc:Constant.js" as Constant
 
 Item {    
 
     // constant value for project
     property string default_title : "Tieto Music"
+    property int screenWidth: Screen.width
+    property int screenHeight: Screen.height
 
     // 0: linux 1: windows 2:android 3:ios 4;mac
     property  int os: 0
@@ -109,13 +112,15 @@ Item {
 
     function handle_for_linux(){
 
-        window_width = 840;
-        window_height = 480
+//        window_width = 840;
+//        window_height = 480
+
+        window_width = screenWidth;
+        window_height = screenHeight;
 
         visulation_height = window_height - control_height - (control_margin * 2);
 
          control_view_height = control_height + control_margin * 2;
-
     }
 
     function handle_for_windows(){

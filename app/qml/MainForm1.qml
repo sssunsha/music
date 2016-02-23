@@ -6,8 +6,8 @@ import QtQuick.Layouts 1.2
 
 Item {
     id: item1
-    width: util.window_width
-    height: util.window_height
+//    width: util.window_width
+//    height: util.window_height
 
     property alias buttonPlay: buttonPlay
     property alias buttonPause: buttonPause
@@ -101,7 +101,8 @@ Item {
         id: stackView
         anchors.top: parent.top
         width : util.visulation_width
-        height : util.visulation_height
+//        height : util.visulation_height
+        anchors.bottom: control_view.top
 
         Rectangle {
             anchors.fill: parent

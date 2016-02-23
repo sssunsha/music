@@ -1,7 +1,7 @@
 #include <QApplication>
 #include <QQmlApplicationEngine>
 #include <QtQml>
-
+#include <QQuickWindow>
 #include "engine.h"
 
 static QObject *provider(QQmlEngine *engine, QJSEngine *scriptEngine)
@@ -19,8 +19,8 @@ int main(int argc, char *argv[])
     QApplication app(argc, argv);
 
     qmlRegisterSingletonType<Engine>("AudioPlayer", 1, 0, "AudioPlayer", provider);
-    QQmlApplicationEngine engine;
 
+    QQmlApplicationEngine engine;
     engine.load(QUrl(QStringLiteral("qrc:/main.qml")));
 
     return app.exec();

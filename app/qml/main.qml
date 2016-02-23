@@ -2,7 +2,6 @@ import QtQuick 2.5
 import QtQuick.Controls 1.4
 import QtQuick.Dialogs 1.2
 import QtQuick.Controls.Styles 1.4
-import QtQuick.Window 2.2
 
 import AudioPlayer 1.0
 import "qrc:/../EffectList.js" as EffectList
@@ -12,13 +11,10 @@ import "qrc:/../EffectList.js" as EffectList
 
 ApplicationWindow {    
     id:root
-    visible: true
     width: util.window_width
     height: util.window_height
+    visible: true
     title: qsTr(util.default_title)
-
-    property int screenWidth: Screen.width
-    property int screenHeight: Screen.height
     property alias mainWindow: root
     property alias mainForm: mainForm1
 
@@ -112,7 +108,7 @@ ApplicationWindow {
     }
 
     Component.onCompleted: {
-        console.log("screen width = " + screenWidth + " screen height = " + screenHeight);
+        console.log("root.contentItem.implicitHeight : "  + root.contentItem.implicitHeight );
     }
 
     Util{
