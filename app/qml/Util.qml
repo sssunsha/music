@@ -1,5 +1,6 @@
 import QtQuick 2.5
 import AudioPlayer 1.0
+import "qrc:Constant.js" as Constant
 
 Item {    
 
@@ -70,16 +71,13 @@ Item {
 
     // util self some var
 
-    // used to check whether the global var has been set for different OS
-    property  bool is_pre_var_set: false
-
     Component.onCompleted: {
-        if(is_pre_var_set === false)
+        if(Constant.is_pre_var_set === false)
         {
             os = AudioPlayer.get_os();
-            console.log("os is ", os);
+//            console.log("os is ", os);
             handle_different_os_4_global_var();
-            is_pre_var_set = true;
+            Constant.is_pre_var_set = true;
         }
     }
 

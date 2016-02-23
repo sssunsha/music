@@ -84,7 +84,7 @@ Rectangle {
     Connections {
         target: AudioPlayer
         onBarDataChanged:{
-            console.log("AudioPlayer.onBarDataChanged: enter");
+//            console.log("AudioPlayer.onBarDataChanged: enter");
 
             if(!initialized) {
                 createBarArea();
@@ -95,23 +95,23 @@ Rectangle {
                 barObject[i].barHeight = barData[i];
             }
 
-            console.log("AudioPlayer.onBarDataChanged: exit");
+//            console.log("AudioPlayer.onBarDataChanged: exit");
         }
 
         onProgressChanged:{
-            console.log("AudioPlayer.onProgressChanged: enter");
+//            console.log("AudioPlayer.onProgressChanged: enter");
             progressBar.value = position;
-            console.log("AudioPlayer.onProgressChanged: exit");
+//            console.log("AudioPlayer.onProgressChanged: exit");
         }
 
         onElapsedTimeChanged:{
-            console.log("AudioPlayer.onElapsedTimeChanged: enter");
+//            console.log("AudioPlayer.onElapsedTimeChanged: enter");
 
             var curr = secondsToHumanString(current);
             var len  = secondsToHumanString(duration);
             elapsedTime.text = curr + " / " + len;
 
-            console.log("AudioPlayer.onElapsedTimeChanged: exit");
+//            console.log("AudioPlayer.onElapsedTimeChanged: exit");
         }
 
     }

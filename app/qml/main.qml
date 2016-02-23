@@ -67,6 +67,9 @@ ApplicationWindow {
         nameFilters: [  qsTr("*.wav *.mp3 *.wma *.ape *.aac")]
         onAccepted: {
             var path = fileSelector.fileUrl.toString();
+
+            // TODO: need to do the change for different OS
+
             audioFilePath = path;
             console.log(path);
             AudioPlayer.suspend();
