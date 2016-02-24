@@ -42,10 +42,12 @@ ApplicationWindow {
             {
             case 0:
                 // show the default effect, so do nothing
+                stackView.clear();
                 break;
             case 1:
             case 2:
             case 3:
+                stackView.clear();
                 stackView.push(EffectList.effectArray[effectIndex -1]);
                 break;
             default:
