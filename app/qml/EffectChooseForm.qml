@@ -27,6 +27,7 @@ Rectangle {
             anchors.rightMargin: util.effect_choose_layoutMargin
             width: parent.width -(2 *  util.effect_choose_layoutMargin)
             height: util.effect_choose_chooseFormHeight
+            implicitHeight: util.effect_choose_chooseFormHeight
             border.color: util.effect_choose_form_border_release_color
             border.width: util.effect_choose_form_border_width
             color : util.effect_choose_form_color
@@ -36,7 +37,6 @@ Rectangle {
                 source : "qrc:/../image/effect1.png"
             }
         }
-
         Rectangle {
             id : effect2_choose_form
             property int effect_index: 1
@@ -46,6 +46,7 @@ Rectangle {
             anchors.rightMargin: util.effect_choose_layoutMargin
             width: parent.width -(2 *  util.effect_choose_layoutMargin)
             height: util.effect_choose_chooseFormHeight
+            implicitHeight: util.effect_choose_chooseFormHeight
             border.color: util.effect_choose_form_border_release_color
             border.width: util.effect_choose_form_border_width
             color : util.effect_choose_form_color
@@ -66,6 +67,7 @@ Rectangle {
             anchors.rightMargin: util.effect_choose_layoutMargin
             width: parent.width -(2 *  util.effect_choose_layoutMargin)
             height: util.effect_choose_chooseFormHeight
+            implicitHeight: util.effect_choose_chooseFormHeight
             border.color: util.effect_choose_form_border_release_color
             border.width: util.effect_choose_form_border_width
             color : util.effect_choose_form_color
@@ -86,6 +88,7 @@ Rectangle {
             anchors.rightMargin: util.effect_choose_layoutMargin
             width: parent.width -(2 *  util.effect_choose_layoutMargin)
             height: util.effect_choose_chooseFormHeight
+            implicitHeight: util.effect_choose_chooseFormHeight
             border.color: util.effect_choose_form_border_release_color
             border.width: util.effect_choose_form_border_width
             color : util.effect_choose_form_color
