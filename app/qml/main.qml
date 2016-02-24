@@ -64,7 +64,9 @@ ApplicationWindow {
         onAccepted: {
             var path = fileSelector.fileUrl.toString();
 
-            // TODO: need to do the change for different OS
+            // remove prefixed "file:///"
+            path = path.replace(/^(file:\/{2})|(qrc:\/{2})|(http:\/{2})/,"");
+            // unescape html codes like '%23' for '#'
 
             audioFilePath = path;
             console.log("path = " + path);
