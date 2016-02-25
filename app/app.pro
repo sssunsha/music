@@ -6,6 +6,8 @@ TARGET = music
 
 QT += qml quick widgets multimedia
 
+DEFINES += QT_NO_DEBUG_OUTPUT
+
 HEADERS += engine.h \
     utils.h \
     wavfile.h \
